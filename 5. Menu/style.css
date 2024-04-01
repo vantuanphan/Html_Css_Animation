@@ -1,0 +1,219 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #222;
+}
+
+.container {
+    position: relative;
+    width: 600px;
+    height: 600px;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+
+.container .icon {
+    position: relative;
+    left: -50%;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+
+.container .icon .img {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    transition: 0.5s;
+    border: 1px solid #fff;
+    box-shadow: 0 0 0 4px #222, 0 0 0 6px #fff;
+    transform: rotate(calc(360deg/10 * var(--i)));
+    transform-origin: 340px;
+    z-index: 100;
+    overflow: hidden;
+}
+
+.container .icon .img.a1 {
+    box-shadow: 0 0 0 6px #222, 0 0 0 10px #66FF33;
+
+}
+
+.container .icon .img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    transform: rotate(calc(-360deg/10 * var(--i)));
+    transition: 0.5s;
+    filter: grayscale(1);
+}
+
+.container .icon .img.a1 img {
+    filter: grayscale(0);
+}
+
+.content {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content::before {
+    content: '';
+    position: absolute;
+    inset: 60px;
+    border: 4px solid transparent;
+    border-left: 4px solid #FFFF99;
+    border-right: 4px solid #FFCC00;
+    border-radius: 50%;
+    animation: animate1 5s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes animate1 {
+    0% {
+        rotate: 0deg;
+    }
+    100% {
+        rotate: 360deg;
+    }
+}
+
+
+.content::after {
+    content: '';
+    position: absolute;
+    inset: 120px;
+    border: 4px solid transparent;
+    border-left: 4px solid #FF99CC;
+    border-right: 4px solid #00CC00;
+    border-radius: 50%;
+    animation: animate2 2.5s linear infinite;
+    z-index: 1;
+    pointer-events: none;
+}
+
+@keyframes animate2 {
+    0% {
+        rotate: 350deg;
+    }
+    100% {
+        rotate: 0deg;
+    }
+}
+
+.contentt {
+    position: absolute;
+    transform: scale(0);
+    transition: 0.5s;
+    opacity: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contentt.a1 {
+    transform: scale(1);
+    opacity: 1;
+    transition-delay: 0.5s;
+}
+
+.contentt .card {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contentt .card .img {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.contentt .card .img img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.contentt .card .text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.contentt .card .text h2 {
+    position: relative;
+    font-size: 1.25em;
+    font-weight: 600;
+    color: #fff;
+    line-height: 1em;
+    text-transform: uppercase;
+    text-align: center;
+}
+
+.contentt .card .text h2 span {
+    font-size: 0.65em;
+    color: #fff;
+    font-weight: 500;
+    letter-spacing: 0.1em;
+}
+
+.contentt .card .text .sci {
+    position: relative;
+    display: flex;
+    gap: 7px;
+    margin-top: 10px;
+}
+
+.contentt .card .text .sci li {
+    list-style: none;
+
+}
+
+.contentt .card .text .sci li a {
+    position: relative;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #555;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: 0.5s;
+}
+
+.contentt .card .text .sci li a:hover {
+    background: #66FF33;
+}
